@@ -2,8 +2,35 @@
 
 > On-chain curriculum certifications for Web3 developers
 
+<!-- Project Status -->
+[![Development Status](https://img.shields.io/badge/status-in%20development-orange.svg)](https://github.com/Fused-Gaming/vise)
+[![Version](https://img.shields.io/badge/version-0.1.0--alpha-blue.svg)](https://github.com/Fused-Gaming/vise/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Fused-Gaming/vise/issues)
+
+<!-- Tech Stack -->
+[![Solidity](https://img.shields.io/badge/Solidity-0.8.20-363636?logo=solidity)](https://soliditylang.org/)
+[![Hardhat](https://img.shields.io/badge/Hardhat-2.19-yellow?logo=ethereum)](https://hardhat.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://reactjs.org/)
+
+<!-- Blockchain -->
+[![ERC-721](https://img.shields.io/badge/ERC--721-Soulbound-9cf)](https://eips.ethereum.org/EIPS/eip-721)
+[![ERC-20](https://img.shields.io/badge/ERC--20-Governance-blue)](https://eips.ethereum.org/EIPS/eip-20)
+[![OpenZeppelin](https://img.shields.io/badge/OpenZeppelin-5.0-4E5EE4?logo=openzeppelin)](https://www.openzeppelin.com/)
+[![Ethereum](https://img.shields.io/badge/Ethereum-Mainnet-3C3C3D?logo=ethereum)](https://ethereum.org/)
+
+<!-- Community & Social -->
+[![Discord](https://img.shields.io/badge/Discord-Join%20Us-5865F2?logo=discord&logoColor=white)](https://discord.gg/vise)
+[![Twitter Follow](https://img.shields.io/twitter/follow/VISEedu?style=social)](https://twitter.com/VISEedu)
+[![GitHub Stars](https://img.shields.io/github/stars/Fused-Gaming/vise?style=social)](https://github.com/Fused-Gaming/vise/stargazers)
+
+<!-- Documentation & Quality -->
+[![Documentation](https://img.shields.io/badge/docs-comprehensive-success)](./README.md)
+[![Curriculum](https://img.shields.io/badge/modules-6-informational)](./curriculum/)
+[![Sprints](https://img.shields.io/badge/sprints-3-informational)](./sprints/)
+[![Exercises](https://img.shields.io/badge/exercises-100%2B-success)](./exercises/)
 
 ## What is VISE?
 
