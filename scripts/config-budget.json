@@ -1,0 +1,59 @@
+{
+  "budget": {
+    "daily": 10.00,
+    "weekly": 50.00,
+    "monthly": 200.00,
+    "quarterly": 500.00
+  },
+  "thresholds": {
+    "warning": 75,
+    "critical": 90
+  },
+  "services": {
+    "alchemy_rpc": {
+      "name": "Alchemy RPC",
+      "budget_monthly": 50.00,
+      "cost_per_call": 0.0001,
+      "description": "Ethereum RPC provider for Sepolia and Mainnet"
+    },
+    "pinata_ipfs": {
+      "name": "Pinata IPFS",
+      "budget_monthly": 20.00,
+      "monthly_fixed": 20.00,
+      "description": "IPFS pinning for NFT metadata"
+    },
+    "sendgrid_email": {
+      "name": "SendGrid Email",
+      "budget_monthly": 15.00,
+      "cost_per_email": 0.001,
+      "free_tier": 100,
+      "description": "Email delivery service"
+    },
+    "etherscan_api": {
+      "name": "Etherscan API",
+      "budget_monthly": 0.00,
+      "free_tier": 5,
+      "description": "Contract verification and blockchain data"
+    },
+    "vercel_hosting": {
+      "name": "Vercel Hosting",
+      "budget_monthly": 0.00,
+      "description": "docs.vln.gg and edu.vln.gg hosting (free tier)"
+    },
+    "digitalocean_vps": {
+      "name": "DigitalOcean VPS",
+      "budget_monthly": 60.00,
+      "description": "mail.vln.gg server (2 vCPU, 4GB RAM)"
+    }
+  },
+  "alerts": {
+    "email": "admin@vln.gg",
+    "slack_webhook": "",
+    "discord_webhook": ""
+  },
+  "notes": {
+    "total_estimated_monthly": "~$145-196",
+    "last_updated": "2025-11-22",
+    "currency": "USD"
+  }
+}
