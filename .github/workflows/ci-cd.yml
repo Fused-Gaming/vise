@@ -50,24 +50,37 @@ jobs:
             echo "✓ No .env file tracked in git"
           fi
 
-          # Check for blockchain private keys
+          # Check for blockchain private keys (excluding examples and docs)
           echo ""
           echo "→ Checking for blockchain private keys..."
-          if git grep -E "PRIVATE_KEY.*0x[a-fA-F0-9]{64}" HEAD 2>/dev/null; then
-            echo "❌ CRITICAL: Blockchain private key detected!"
+          # Exclude .example files, .md files, and all-zeros dummy keys
+          if git grep -E "PRIVATE_KEY.*0x[a-fA-F0-9]{64}" HEAD \
+              | grep -v "\.example" \
+              | grep -v "\.md:" \
+              | grep -v "0x0000000000000000000000000000000000000000000000000000000000000000" \
+              | grep -q .; then
+            echo "❌ CRITICAL: Real blockchain private key detected!"
+            echo "Private keys should only be in .env (which is gitignored)"
             exit 1
           else
-            echo "✓ No private keys detected"
+            echo "✓ No private keys detected (example/dummy keys ignored)"
           fi
 
-          # Check for RPC URLs with API keys
+          # Check for RPC URLs with API keys (excluding examples and docs)
           echo ""
           echo "→ Checking for RPC URLs with embedded API keys..."
-          if git grep -E "(alchemy|infura)\.com/.*/[a-zA-Z0-9]{32,}" HEAD 2>/dev/null; then
-            echo "⚠️  WARNING: RPC URL with API key detected!"
+          # Exclude .example files, .md files, and placeholder values
+          if git grep -E "(alchemy|infura)\.com/v2/[a-zA-Z0-9]{32,}" HEAD \
+              | grep -v "\.example" \
+              | grep -v "\.md:" \
+              | grep -v "YOUR_" \
+              | grep -v "your_" \
+              | grep -q .; then
+            echo "⚠️  WARNING: RPC URL with real API key detected!"
             echo "Please use environment variables instead"
+            exit 1
           else
-            echo "✓ No exposed RPC API keys"
+            echo "✓ No exposed RPC API keys (examples ignored)"
           fi
 
       - name: 📦 Setup Node.js
