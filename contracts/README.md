@@ -4,6 +4,7 @@ This directory contains educational smart contract demonstrations for the VISE c
 
 ## 📚 Contents
 
+- **V-Pass**: Token-gating NFT for curriculum access (PRODUCTION)
 - **Module 2**: Solidity Fundamentals
 - **Module 3**: NFTs and Token Standards
 - **Module 4**: Governance and DAOs
@@ -30,7 +31,104 @@ forge coverage
 
 # Deploy to Sepolia testnet
 forge script script/DeployAll.s.sol:DeployAll --rpc-url $SEPOLIA_RPC_URL --broadcast --verify
+
+# Deploy V-Pass (production)
+forge script script/DeployVPass.s.sol:DeployVPass --rpc-url $SEPOLIA_RPC_URL --broadcast --verify
 ```
+
+## 🎟️ V-Pass: Curriculum Access NFT (PRODUCTION)
+
+### VISECurriculumPass.sol
+
+**Purpose**: Token-gating NFT for VISE curriculum access with rarity-based benefits
+
+**Status**: ✅ PRODUCTION-READY (not for education - actual platform token)
+
+**Features**:
+- **Rarity System**: 4 tiers (Common, Rare, Epic, Legendary)
+- **Module Access Control**: Different access levels per rarity
+- **Transferable**: NOT soulbound - enables secondary market
+- **Governance Integration**: DAO-controlled special mints
+- **Revenue Sharing**: 80% to treasury, 20% to operations
+- **Price Tiers**: 0.05 ETH (Common) to 0.5 ETH (Legendary)
+
+**Rarity Tiers**:
+
+| Rarity | Supply | Price | Access | Lifetime | Bonus |
+|--------|--------|-------|--------|----------|-------|
+| COMMON | 6,000 (60%) | 0.05 ETH ($100) | Modules 1-3 | ❌ | 0% |
+| RARE | 2,500 (25%) | 0.10 ETH ($200) | Modules 1-4 | ❌ | 10% |
+| EPIC | 1,200 (12%) | 0.20 ETH ($400) | All Modules | ✅ | 25% |
+| LEGENDARY | 300 (3%) | 0.50 ETH ($1,000) | All + 1-on-1 | ✅ | 50% |
+
+**Access Control**:
+```solidity
+// Check if user can access a module
+bool hasAccess = vpass.hasModuleAccess(userAddress, moduleId);
+
+// Get user's highest access level
+uint256 level = vpass.getUserAccessLevel(userAddress);
+
+// Check lifetime access
+bool lifetime = vpass.hasLifetimeAccess(userAddress);
+```
+
+**Minting**:
+```solidity
+// Public mint
+vpass.mint{value: 0.1 ether}(VISECurriculumPass.Rarity.RARE);
+
+// Governance mint (no payment, DAO-approved)
+address[] memory recipients = [student1, student2];
+vpass.governanceMint(recipients, VISECurriculumPass.Rarity.EPIC);
+
+// Authorized minter (partnerships)
+vpass.authorizedMint(partnerStudent, VISECurriculumPass.Rarity.RARE);
+```
+
+**Revenue Model**:
+- Max Revenue: ~$1,880,000 (if all 10,000 minted)
+- Treasury (80%): ~$1,504,000 (DAO-controlled)
+- Operations (20%): ~$376,000
+
+**Budget**: See `/VPASS-BUDGET-ESTIMATION.md` for detailed financial projections
+
+**Key Learning Points** (for developers):
+- Token-gating implementation
+- Rarity systems in NFTs
+- DAO governance integration
+- Revenue distribution
+- Access control patterns
+
+**Deployment**:
+```bash
+# Set environment variables
+export VPASS_BASE_URI="ipfs://QmVPASS/"
+export TREASURY_ADDRESS="0x..."
+export MINT_INITIAL_PASSES=false
+
+# Deploy (includes governance + timelock)
+forge script script/DeployVPass.s.sol:DeployVPass \
+  --rpc-url $MAINNET_RPC_URL \
+  --broadcast \
+  --verify
+```
+
+**Integration with Platform**:
+```typescript
+// Check access before allowing module entry
+const hasAccess = await vpassContract.hasModuleAccess(
+  userAddress,
+  moduleId
+);
+
+if (!hasAccess) {
+  // Show mint page or upgrade prompt
+  redirectToMintPage();
+}
+```
+
+---
 
 ## 📋 Module 2: Solidity Fundamentals
 
