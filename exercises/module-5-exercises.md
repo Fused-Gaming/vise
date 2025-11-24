@@ -567,3 +567,7 @@ Complete these to prepare for your PRIV-1 assessment:
 ---
 
 Security is a journey, not a destination. Stay paranoid and keep learning! 🔒
+
+---
+
+**Exercise Author**: @jmenichole

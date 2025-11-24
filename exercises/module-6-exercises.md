@@ -629,3 +629,7 @@ Complete these to prepare for your DEV-1 assessment:
 ---
 
 DevOps for Web3 requires both traditional DevOps skills and blockchain-specific knowledge. Master both! 🚀
+
+---
+
+**Exercise Author**: @jmenichole

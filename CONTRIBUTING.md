@@ -475,4 +475,11 @@ Current priorities (check issues for latest):
 
 **Thank you for contributing to VISE!** Your efforts help make Web3 education accessible to everyone. 🚀
 
+---
+
+## Contributors
+
+This guide was created with contributions from:
+- **@jmenichole** - Repository owner and VISE project lead
+
 *Last Updated: 2025-11-24*

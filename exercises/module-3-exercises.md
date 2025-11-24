@@ -468,3 +468,7 @@ Complete these to prepare for your NFT-1 assessment:
 ---
 
 These exercises will give you comprehensive understanding of NFT development. Take your time and build quality projects! 🎨
+
+---
+
+**Exercise Author**: @jmenichole

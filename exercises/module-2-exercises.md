@@ -448,3 +448,7 @@ Complete these to prepare for your SOL-1 assessment:
 ---
 
 Remember: These exercises build upon each other. Complete them in order for the best learning experience. Good luck! 🚀
+
+---
+
+**Exercise Author**: @jmenichole

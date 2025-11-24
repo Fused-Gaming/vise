@@ -509,3 +509,7 @@ Complete these to prepare for your TOK-1 assessment:
 ---
 
 Tokenomics is as much art as science. Design thoughtfully and test thoroughly! 💰
+
+---
+
+**Exercise Author**: @jmenichole
